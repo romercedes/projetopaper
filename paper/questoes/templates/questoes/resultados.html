@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>PAPER</title>
-  </head>
-  <h1>{{ question.question_text }}</h1>
-  <body>
-    <p><ul>
-      <form action="{% url 'questoes:resposta' question.id %}" method="post">
+<h1>{{ question.question_text }}</h1>
+<body>
+    <form action="/questoes">
         {% csrf_token %}
         <fieldset>
             <legend><h1>{{ question.question_text }}</h1></legend>
@@ -15,9 +8,10 @@
             <br> {{ question.alternativa2 }} </br>
             <br> {{ question.alternativa3 }} </br>
             <br> {{ question.alternativa4 }} </br>
+            <br> O gabrito dessa questão é letra {{ question.gabarito }} <br>
         </fieldset>
-        <input type="submit" value="Resposta">
+        <input type="submit" value="Início">
         </form>
-        </ul></p>
-  </body>
-</html>
+</body>
+
+

@@ -6,6 +6,11 @@ from django.utils import timezone
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     habilidade = models.CharField(max_length=100)
+    alternativa1 = models.CharField(max_length=100)
+    alternativa2 = models.CharField(max_length=100)
+    alternativa3 = models.CharField(max_length=100)
+    alternativa4 = models.CharField(max_length=100)
+    gabarito = models.CharField(max_length=1)
     pub_date = models.DateTimeField('data de publicação')
     def __str__(self):
         return self.question_text

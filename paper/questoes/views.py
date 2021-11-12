@@ -1,22 +1,23 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect
 from django.http import Http404
 from django.template import loader
+from django.urls import reverse
+from .models import Question, Choice
 
-def index(request):
+def index(request): #Remover função?
     return HttpResponse("PAPER")
 
 def detail(request, question_id):
     return HttpResponse("Essa é a questão %s." % question_id)
 
-def resultados(request, question_id):
-    response = "Resultados da questão (verificar utilidade) %s."
-    return HttpResponse(response % question_id)
+def resultados(request, question_id): # Aparentemente inútil, mas não retirar do código antes de identificar os vínculos
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'questoes/resultados.html', {'question': question})
 
 def resposta(request, question_id):
-    return HttpResponse("Você está respondendo a questão %s." % question_id)
-
-from .models import Question
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'questoes/resultados.html', {'question': question})
 
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
