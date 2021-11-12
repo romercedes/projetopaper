@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>PAPER</title>
+  </head>
+  <h1>{{ question.question_text }}</h1>
+  <body>
+    <p><ul>
+        {% for choice in question.choice_set.all %}
+            <li>{{ choice.choice_text }}</li>
+        {% endfor %}
+        </ul></p>
+  </body>
+</html>
