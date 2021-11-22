@@ -7,12 +7,20 @@
     <meta charset="utf-8">
     <title style= "font-family: Arial"> PAPER</title>
   </head>
-    <h1> PAPER - PLataforma de Aprendizagem Personalizada </h1>
+    <h1> PAPER - Plataforma de Aprendizagem Personalizada </h1>
     <body style="margin:20px 40px 20px 40px; background-color:orange">
       <p style="text-align:center">
       <br><img src="{% static 'questoes/teste.jpg' %}" alt="Imagem do Freepik" width="400" height="400"></br>
       </p>
-      <p style="font-family: Arial; font-size:x-large; text-align:center"> Lista de Questões</p>  
+      <p style="font-family: Arial; font-size:x-large; text-align:center"> Lista de Questões</p>
+    <p style="text-align:center">
+      <label for="Hab"> Escolha uma habilidade para treinar</label>
+      <select id="Hab" name="escolha_hab">
+          <option value ="Habilidade1"> Matemática</option>
+          <option value ="Habilidade2"> Soma</option>
+          <option value ="Habilidade3"> Subtração</option>
+      </select>
+    </p>  
     <p>      {% if latest_question_list %}
         <ul>
         {% for question in latest_question_list %}
