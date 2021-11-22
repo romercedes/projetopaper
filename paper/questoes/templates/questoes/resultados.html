@@ -1,17 +1,25 @@
-<h1>{{ question.question_text }}</h1>
-<body>
-    <form action="/">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title style= "font-family: Calibri">PAPER</title>
+  </head>
+  <h1 style= "font-family: Calibri">Confira a resposta da sua questão</h1>
+  <body style="margin:20px 40px 20px 40px; background-color:rgb(253, 166, 246)">
+    <p><ul>
+        <form action="/">
         {% csrf_token %}
         <fieldset>
-            <legend><h1>{{ question.question_text }}</h1></legend>
-            <br> {{ question.alternativa1 }} </br>
-            <br> {{ question.alternativa2 }} </br>
-            <br> {{ question.alternativa3 }} </br>
-            <br> {{ question.alternativa4 }} </br>
-            <br> O gabarito dessa questão é letra {{ question.gabarito }} <br>
+            <legend><h1 style= "font-family: Calibri">{{ question.question_text }}</h1></legend>
+            <br style= "font-family: Calibri"> {{ question.alternativa1 }} </br>
+            <br style= "font-family: Calibri"> {{ question.alternativa2 }} </br>
+            <br style= "font-family: Calibri"> {{ question.alternativa3 }} </br>
+            <br style= "font-family: Calibri"> {{ question.alternativa4 }} </br>
+            <br style= "font-family: Calibri"> <b>O gabarito dessa questão é letra {{ question.gabarito }}</b> <br/>
         </fieldset>
-        <input type="submit" value="Início">
+        <br><br/>
+        <input type="submit" value="Voltar ao início" style= "font-family: Calibri">
         </form>
-</body>
-
-
+        </ul></p>
+  </body>
+</html>

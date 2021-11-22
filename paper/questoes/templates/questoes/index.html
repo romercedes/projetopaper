@@ -5,24 +5,24 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title style= "font-family: Arial"> PAPER</title>
+    <title style= "font-family: Calibri"> PAPER</title>
   </head>
-    <h1> PAPER - Plataforma de Aprendizagem Personalizada </h1>
+    <h1 style= "font-family: Calibri; text-align:center"> PAPER - Plataforma de Aprendizagem Personalizada </h1>
     <body style="margin:20px 40px 20px 40px; background-color:rgb(253, 166, 246)">
       <p style="text-align:center">
       <br><img src="{% static 'questoes/Paper.png' %}" alt="Imagem do Freepik" width="800" height="400"></br>
       <br><img src="{% static 'questoes/Objetivo.png' %}" alt="Imagem do Freepik" width="800" height="400"></br>
       </p>
-      <p style="font-family: Arial; font-size:x-large; text-align:center"> Escolha de Habilidades</p>
+      <p style="font-family: Calibri; font-size:x-large; text-align:center"> Escolha de Habilidades</p>
     <p style="text-align:center">
-      <form action="{% url 'questoes:lista' %}" method="post">
+      <form action="{% url 'questoes:lista' %}" method="post" style="text-align:center">
         {% csrf_token %}
-      <label for="Hab"> Escolha uma habilidade para treinar</label>
+      <label for="Hab" style= "font-family: Calibri"> Escolha uma habilidade para treinar: </label>
       <select id="Hab" name="Hab">
           <option value ="Matemática" selected> Matemática</option>
           <option value ="Soma"> Soma</option>
           <option value ="Subtração"> Subtração</option>
-        <input type="submit" value="Escolhi!">
+        <input type="submit" value="Mostrar Questões">
       </select>
       <br><br/>
     </form>
