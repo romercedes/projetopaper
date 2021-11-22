@@ -14,12 +14,17 @@
       </p>
       <p style="font-family: Arial; font-size:x-large; text-align:center"> Lista de Questões</p>
     <p style="text-align:center">
+      <form action="." method="post">
+        {% csrf_token %}
       <label for="Hab"> Escolha uma habilidade para treinar</label>
-      <select id="Hab" name="escolha_hab">
-          <option value ="Habilidade1"> Matemática</option>
-          <option value ="Habilidade2"> Soma</option>
-          <option value ="Habilidade3"> Subtração</option>
+      <select id="Hab" name="Hab">
+          <option value ="Matemática"> Matemática</option>
+          <option value ="Soma"> Soma</option>
+          <option value ="Subtração"> Subtração</option>
+          <input type="submit" value="Escolhi!">
       </select>
+      <br><br/>
+    </form>
     </p>  
     <p>      {% if latest_question_list %}
         <ul>

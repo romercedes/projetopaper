@@ -20,7 +20,9 @@ def resposta(request, question_id):
     return render(request, 'questoes/resultados.html', {'question': question})
 
 def index(request):
-    latest_question_list = Question.objects.filter(habilidade='Soma')[:10]
+    if request.method == "POST":
+        Hab = request.POST.get('Hab', None)
+    latest_question_list = Question.objects.filter(habilidade=Hab)[:10]
     context = {
         'latest_question_list': latest_question_list
         }
