@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title style= "font-family: Arial"> PAPER</title>
+  </head>
+    <h1> PAPER - Plataforma de Aprendizagem Personalizada </h1>
+    <body style="margin:20px 40px 20px 40px; background-color:orange">
+    <p style="font-family: Arial; font-size:x-large; text-align:center"> Lista Filtrada de Questões</p>
+    <p>      {% if filter_question_list %}
+        <ul>
+        {% for question in filter_question_list %}
+            <li><a href="{% url 'questoes:detail' question.id %}">{{ question.question_text }} - Habilidade: {{ question.habilidade }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Não há questões disponíveis.</p>
+    {% endif %}</p>
+  </body>
+</html>

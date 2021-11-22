@@ -12,28 +12,19 @@
       <p style="text-align:center">
       <br><img src="{% static 'questoes/teste.jpg' %}" alt="Imagem do Freepik" width="400" height="400"></br>
       </p>
-      <p style="font-family: Arial; font-size:x-large; text-align:center"> Lista de Questões</p>
+      <p style="font-family: Arial; font-size:x-large; text-align:center"> Escolha de Habilidades</p>
     <p style="text-align:center">
-      <form action="." method="post">
+      <form action="{% url 'questoes:lista' %}" method="post">
         {% csrf_token %}
       <label for="Hab"> Escolha uma habilidade para treinar</label>
       <select id="Hab" name="Hab">
-          <option value ="Matemática"> Matemática</option>
+          <option value ="Matemática" selected> Matemática</option>
           <option value ="Soma"> Soma</option>
           <option value ="Subtração"> Subtração</option>
-          <input type="submit" value="Escolhi!">
+        <input type="submit" value="Escolhi!">
       </select>
       <br><br/>
     </form>
     </p>  
-    <p>      {% if latest_question_list %}
-        <ul>
-        {% for question in latest_question_list %}
-            <li><a href="{% url 'questoes:detail' question.id %}">{{ question.question_text }} - Habilidade: {{ question.habilidade }}</a></li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>Não há mais questões disponíveis.</p>
-    {% endif %}</p>
   </body>
 </html>

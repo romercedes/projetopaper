@@ -21,12 +21,22 @@ def resposta(request, question_id):
 
 def index(request):
     if request.method == "POST":
-        Hab = request.POST.get('Hab', None)
-    latest_question_list = Question.objects.filter(habilidade=Hab)[:10]
+         Hab = request.POST.get('Hab', None)
+    latest_question_list = Question.objects.all()
     context = {
         'latest_question_list': latest_question_list
         }
     return render(request, 'questoes/index.html', context)
+
+def lista(request):
+    if request.method == "POST":
+         Hab = request.POST.get('Hab', None)
+    filter_question_list = Question.objects.filter(habilidade=Hab)
+    context = {
+        'filter_question_list': filter_question_list
+        }
+    return render(request, 'questoes/lista.html', context)
+
 
 def detail(request, question_id):
     try:
