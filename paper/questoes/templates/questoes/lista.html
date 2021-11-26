@@ -10,17 +10,17 @@
 </head>
 <h1 style="font-family: Calibri; text-align:center"> PAPER - Plataforma de Aprendizagem Personalizada </h1>
 
-<body style="margin:20px 40px 20px 40px; background-color:rgb(253, 166, 246)">
+<div style="margin:20px 40px 20px 40px; background-color:rgb(253, 166, 246)">
     <p style="font-family: Calibri; font-size:x-large; text-align:center"> Sua lista de questões está pronta, basta escolher!</p>
     <p> {% if filter_question_list %}
-        <ul style="text-align:center">
+        <ul>
             {% for question in filter_question_list %}
-            <li style="font-family: Calibri; text-align:center"><a href="{% url 'pages:detail' question.id %}">{{ question.question_text }} - Habilidade: {{ question.habilidade }}</a></li>
+            <li style="font-family: Calibri"><a href="{% url 'questoes:detail' question.id %}">{{ question.question_text }} - Habilidade: {{ question.habilidade }}</a></li>
             {% endfor %}
         </ul>
         {% else %}
         <p>Não há questões disponíveis.</p>
         {% endif %}</p>
-</body>
+    </div>
 
 </html>

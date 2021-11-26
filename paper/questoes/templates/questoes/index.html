@@ -1,8 +1,8 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <div style="margin:20px 40px 20px 40px; background-color:rgb(253, 166, 246)">
     <p style="text-align:center">
-        <br><img src="{% static 'questoes/Paper.png' %}" alt="Imagem do Freepik" width="800" height="400"></br>
-        <br><img src="{% static 'questoes/Objetivo.png' %}" alt="Imagem do Freepik" width="800" height="400"></br>
+        <br><img src="{% static 'questoes/Paper.png' %}" alt="Imagem 1" width="800" height="400"></br>
+        <br><img src="{% static 'questoes/Objetivo.png' %}" alt="Imagem 2" width="800" height="400"></br>
     </p>
     <p style="font-family: Calibri; font-size:x-large; text-align:center"> Escolha de Habilidades</p>
     <p style="text-align:center">
@@ -10,9 +10,9 @@
             {% csrf_token %}
             <label for="Hab" style="font-family: Calibri"> Escolha uma habilidade para treinar: </label>
             <select id="Hab" name="Hab">
-          <option value ="Matemática" selected> Matemática</option>
-          <option value ="Soma"> Soma</option>
-          <option value ="Subtração"> Subtração</option>
+                <option value="EF06MA11: Operações fundamentais e potenciação" selected>EF06MA11: Operações fundamentais e potenciação</option>
+                <option value="EF08MA08: Equações de 1º grau">EF08MA08: Equações de 1º grau</option>
+                <option value="EM13MAT203: Juros simples e compostos">EM13MAT203: Juros simples e compostos</option>
         <input type="submit" value="Mostrar Questões">
       </select>
             <br><br/>

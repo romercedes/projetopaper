@@ -7,7 +7,7 @@
 </head>
 <h1 style="font-family: Calibri">Confira a resposta da sua questão</h1>
 
-<body style="margin:20px 40px 20px 40px; background-color:rgb(253, 166, 246)">
+<div style="margin:20px 40px 20px 40px; background-color:rgb(253, 166, 246)">
     <p>
         <ul>
             <form action="/">
@@ -27,6 +27,20 @@
             </form>
         </ul>
     </p>
-</body>
+    <p style="font-family: Calibri; font-size:x-large; text-align:center"> Escolha de Habilidades</p>
+    <p style="text-align:center">
+        <form action="{% url 'questoes:lista' %}" method="post" style="text-align:center">
+            {% csrf_token %}
+            <label for="Hab" style="font-family: Calibri"> Escolha uma habilidade para treinar: </label>
+            <select id="Hab" name="Hab">
+                <option value="EF06MA11: Operações fundamentais e potenciação" selected>EF06MA11: Operações fundamentais e potenciação</option>
+                <option value="EF08MA08: Equações de 1º grau">EF08MA08: Equações de 1º grau</option>
+                <option value="EM13MAT203: Juros simples e compostos">EM13MAT203: Juros simples e compostos</option>
+        <input type="submit" value="Mostrar Questões">
+      </select>
+            <br><br/>
+        </form>
+    </p>
+</div>
 
 </html>
