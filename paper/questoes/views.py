@@ -20,23 +20,9 @@ def resposta(request, question_id):
     return render(request, 'questoes/resultados.html', {'question': question})
 
 def index(request):
-    if request.method == "POST":
-         Hab = request.POST.get('Hab', None)
-    latest_question_list = Question.objects.all()
-    context = {
-        'latest_question_list': latest_question_list
-        }
+    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    context = {'latest_question_list': latest_question_list}
     return render(request, 'questoes/index.html', context)
-
-def lista(request):
-    if request.method == "POST":
-         Hab = request.POST.get('Hab', None)
-    filter_question_list = Question.objects.filter(habilidade=Hab)
-    context = {
-        'filter_question_list': filter_question_list
-        }
-    return render(request, 'questoes/lista.html', context)
-
 
 def detail(request, question_id):
     try:
@@ -44,5 +30,10 @@ def detail(request, question_id):
     except Question.DoesNotExist:
         raise Http404("A questão não existe")
     return render(request, 'questoes/detail.html', {'question': question})
+
+def lista(request):
+    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    context = {'latest_question_list': latest_question_list}
+    return render(request, 'questoes/lista.html', context)
 
 # Create your views here.
